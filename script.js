@@ -1,4 +1,5 @@
 var buttons =  document.getElementsByTagName("button");
+// console.log(buttons)
 var inputString = "";
 var outputString = "";
 var operantsArray = [];
