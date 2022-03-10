@@ -17,7 +17,7 @@ function callAction(event)
         calculateAnswer()
     }
     else{
-        addInput(actionType,value)
+        if(addInput(actionType,value))
         inputString += value;
     }
     console.log(operantsArray,operatorsArray);
@@ -48,16 +48,53 @@ function outputfield()
 function addInput(actionType,value){
 
     if(actionType === "operator"){
-        if(isLastoperator)return;
+        if(isLastoperator)return false;
         operatorsArray.push(value);
         isLastoperator = true;
-        return
+        return true
 
     }
     if(isLastoperator){
         operantsArray.push(value)
         isLastoperator = false;
-        return
+        return true
     }
     operantsArray[operantsArray.length - 1] += value;
+    return true;
+}
+
+function calculateAnswer () {
+    for(var j=0;j<2;j++){
+        for(var i=0;i<operantsArray.length;i++){
+            if(j===0 &&(operantsArray[i]=== "*" || operantsArray[i]=== "/" )){
+               PerformAction(i);
+        }
+        if(j!==0){
+            PerformAction(i);
+        }
+    }
+}
+   outputString = operantsArray[0]
+}
+function PerformAction(index){
+    var result = 0;
+    switch(operatorsArray[index]){
+        case "+":
+            result = Number(operantsArray[index]) + Number(operantsArray[index+1])
+        break;
+        case "-":
+            result = operantsArray[index] - operantsArray[index+1]
+        break;
+        case "*":
+            result = operantsArray[index] * operantsArray[index+1]
+        break;
+        case "/":
+            result = operantsArray[index] / operantsArray[index+1]
+        break;
+    }
+
+operantsArray[index] = result;
+operantsArray.splice(index+1,1);
+operatorsArray.splice(index,1);
+
 }
