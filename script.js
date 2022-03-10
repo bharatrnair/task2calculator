@@ -1,8 +1,9 @@
 var buttons =  document.getElementsByTagName("button");
-var inputString = " ";
-var outputString = " ";
-var operantsArray=" ";
-var operatorsArray=" ";
+var inputString = "";
+var outputString = "";
+var operantsArray = "";
+var operatorsArray = "";
+var isLastoperator = true;
 for(var i=0;i<buttons.length;i++){
     buttons[i].addEventListener("click",callAction);
 }
@@ -42,8 +43,21 @@ function callAction(event)
 }
 function outputfield()
 {
-    document.getElementsByClassName("output-container")[0].innerHTML=outputString ||0;
+    document.getElementsByClassName("output-container")[0].innerHTML=outputString || 0;
 }
 function addInput(actionType,value){
-    
+
+    if(actionType === "operator"){
+
+        operatorsArray.push(value);
+        isLastoperator = true;
+        return
+
+    }
+    if(isLastoperator){
+        operantsArray.push(value)
+        isLastoperator = false;
+        return
+    }
+    operantsArray[operantsArray.length - 1] += value;
 }
