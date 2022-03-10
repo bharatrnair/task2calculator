@@ -1,8 +1,8 @@
 var buttons =  document.getElementsByTagName("button");
 var inputString = "";
 var outputString = "";
-var operantsArray = "";
-var operatorsArray = "";
+var operantsArray = [];
+var operatorsArray = [];
 var isLastoperator = true;
 for(var i=0;i<buttons.length;i++){
     buttons[i].addEventListener("click",callAction);
@@ -48,7 +48,7 @@ function outputfield()
 function addInput(actionType,value){
 
     if(actionType === "operator"){
-
+        if(isLastoperator)return;
         operatorsArray.push(value);
         isLastoperator = true;
         return
