@@ -16,14 +16,16 @@ function callAction(event)
     var actionType = button.classList[0] === "red-text"?"operator":"operant";
     if(value === "="){
         calculateAnswer()
+        outputfield()
     }
     else{
         if(addInput(actionType,value))
         inputString += value;
+        inputfield()
     }
     console.log(operantsArray,operatorsArray);
-    inputfield()
-    outputfield()
+    
+    
 }
 
 
@@ -76,6 +78,7 @@ function calculateAnswer () {
     }
 }
    outputString = operantsArray[0]
+   inputString = operantsArray[0]
 }
 function PerformAction(index){
     var result = 0;

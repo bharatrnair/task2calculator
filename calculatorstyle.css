@@ -16,6 +16,7 @@
     padding: 10px;
     margin: auto;
     text-align: right;
+    position: relative;
 }
 .input-container{
     font-size: 25px;
@@ -46,6 +47,15 @@ button{
 }
 .red-text,.green-text{
     background-color: rgb(218, 212, 212);
+}
+.reset-button{
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: black;
+    cursor: pointer;
+    left: 10px;
 }
 
 
