@@ -52,7 +52,7 @@ button{
     top: 50%;
     position: absolute;
     transform: translateY(-50%);
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: black;
     cursor: pointer;
     left: 10px;
