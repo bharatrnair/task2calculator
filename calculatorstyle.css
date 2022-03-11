@@ -19,9 +19,13 @@
 }
 .input-container{
     font-size: 25px;
+    overflow: auto;
+
 }
 .output-container{
     font-size: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .number-container{
     display: grid;
